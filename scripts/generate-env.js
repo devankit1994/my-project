@@ -7,12 +7,11 @@ const env = {
     MODE: process.env.MODE || ""
 };
 
-console.log('API URL', process.env.API_URL)
-
 const content =
-    "module.exports = " +
     JSON.stringify(env, null, 2) +
     ";\n";
+
+console.log(content)
 
 const outPath = path.join(__dirname, '..', 'env.js');
 fs.writeFileSync(outPath, content);
