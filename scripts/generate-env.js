@@ -17,7 +17,8 @@ const envFilePath = path.resolve(__dirname, '../env.js');
 if (!fs.existsSync(envFilePath)) {
     const defaultEnvContent = `const env = {
     "API_URL": "YOUR_API_URL",
-    "MODE": "YOUR_MODE"
+    "MODE": "YOUR_MODE",
+    "BOOL_VAL": "YOUR_BOOL_VAL"
 };
 
 export { env };
@@ -30,6 +31,7 @@ let envFileContent = fs.readFileSync(envFilePath, 'utf8');
 const configReplacements = {
     YOUR_API_URL: process.env.API_URL,
     YOUR_MODE: process.env.MODE,
+    YOUR_BOOL_VAL: process.env.BOOL_VAL,
 }
 
 for (const [placeholder, value] of Object.entries(configReplacements)) {
