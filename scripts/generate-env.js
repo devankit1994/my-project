@@ -11,7 +11,20 @@ const content =
     JSON.stringify(env, null, 2) +
     ";\n";
 
-const envFilePath = `../env.js`;
+const envFilePath = path.resolve(__dirname, '../env.js');
+
+// If env.js does not exist, create it with default content
+if (!fs.existsSync(envFilePath)) {
+    const defaultEnvContent = `const env = {
+    "API_URL": "YOUR_API_URL",
+    "MODE": "YOUR_MODE"
+};
+
+export { env };
+`;
+    fs.writeFileSync(envFilePath, defaultEnvContent, 'utf8');
+}
+
 let envFileContent = fs.readFileSync(envFilePath, 'utf8');
 
 const configReplacements = {
