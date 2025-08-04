@@ -1,7 +1,3 @@
 {
-  "builds": [
-    { "src": "index.html", "use": "@vercel/static" },
-    { "src": "api/**/*.js", "use": "@vercel/node" }
-  ],
   "buildCommand": "node scripts/generate-env.js"
 }
