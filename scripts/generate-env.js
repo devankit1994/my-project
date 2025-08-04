@@ -8,7 +8,7 @@ const env = {
 };
 
 const content =
-    "export const env = " +
+    "module.exports = " +
     JSON.stringify(env, null, 2) +
     ";\n";
 
