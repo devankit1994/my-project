@@ -7,6 +7,8 @@ const env = {
     MODE: process.env.MODE || ""
 };
 
+console.log('API URL', process.env.API_URL)
+
 const content =
     "module.exports = " +
     JSON.stringify(env, null, 2) +
